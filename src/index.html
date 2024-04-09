@@ -1,25 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-</body>
-<template id="product">
-  <li class="card">
-    <div class="text">
-      <small></small>
-      <h3>
-        <a href></a>
-      </h3>
-      <span></span>
-      <button>Add to cart</button>
-    </div>
-    <div class="image">
-      <img src alt />
-    </div>
-  </li>
-</template>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+      #products {
+        max-width: 80%;
+        margin: 0 auto;
+      }
+      #products ul {
+        display: flex;
+        flex-wrap: wrap;
+        list-style: none;
+        gap: 1rem;
+        padding: 0;
+      }
+      .product {
+        flex: 0 0;
+        /* @TODO TD-240408 write mobile styles */
+        flex-basis: calc(25% - 0.75rem);
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        border: 1px solid black;
+        border-radius: 1rem;
+        overflow: hidden;
+      }
+      .product .text {
+        order: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        width: 100%;
+      }
+      .product .text .content {
+        padding: 1rem;
+      }
+      .product .text button {
+        width: 100%;
+        height: 50px;
+        text-transform: uppercase;
+        color: white;
+        background: black;
+        border: none;
+        font-weight: bolder;
+      }
+      .product .image {
+        height: 6.5rem;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 calc(100% - 1rem));
+      }
+
+      .product .image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(100%);
+      }
+    </style>
+    <link rel="stylesheet" href="./reset.css" />
+    <script defer src="./index.js"></script>
+  </head>
+  <body>
+    <main id="products"></main>
+  </body>
+  <template id="product">
+    <li class="product">
+      <div class="text">
+        <div class="content">
+          <small></small>
+          <h3>
+            <a href></a>
+          </h3>
+          <span></span>
+        </div>
+        <button>Add to cart</button>
+      </div>
+      <div class="image">
+        <img src alt />
+      </div>
+    </li>
+  </template>
 </html>
